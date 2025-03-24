@@ -15,7 +15,12 @@ def generate_md5_dictionary(num=10):
     return md5_dict
 
 if __name__=="__main__":
-    dictionary=generate_md5_dictionary(10)
-    print("Random 6-word Strings and their md5 hashes")
-    for key,value in dictionary.items():
-        print(f"{key}:{value}")
+    user_input=input("Type random for random generation,or type in any word :")
+    if user_input=="random":
+        dictionary=generate_md5_dictionary(10)
+        print("Random 6-word Strings and their md5 hashes")
+        for key,value in dictionary.items():
+            print(f"{key}:{value}")
+    else:
+        s=hashlib.md5(user_input.encode()).hexdigest()
+        print(f"The hash is {s} ")
